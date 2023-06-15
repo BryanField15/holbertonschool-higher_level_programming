@@ -27,10 +27,12 @@ We are testing add_integer with an integer and a string and it should raise a Ty
 	...
 	TypeError: b must be an integer
 
+
 We are testing add_integer with two ints to show that the return value is of type int
 	>>> res = add_integer(2, 3)
 	>>> True if isinstance(res, int) else False
 	True
+
 
 We are testing add_integer with an int and a float to show that the return value is of type int
 	>>> res = add_integer(2, 3.456)
@@ -58,3 +60,17 @@ We are testing add_integer to show that it is rounding to the correct integer
 We are testing add_integer to show that it is rounding first before adding
        >>> add_integer(2.5, 3.5)
        5
+
+
+We are testing add_integer NaN
+       >>> add_integer(float('NaN'))
+       Traceback (most recent call last):
+       ...
+       ValueError: cannot convert float NaN to integer
+
+
+We are testing add_integer for any float overflow
+       >>> add_integer(float('inf'))
+       Traceback (most recent call last):
+       ...
+       OverflowError: cannot convert float infinity to integer
