@@ -2,13 +2,15 @@
 """
 Module containing one function to add two integers
 """
+
+
 def add_integer(a, b=98):
     """
     Simple function to add to integers and return an integer
     @param a: integer or float
     @param b: integer or float, default value 98
     @return: integer, the sum of the two parameters
-    @raise: TypeError, raised if one or both of the parameters is not an integer
+    @raise: TypeError, raised if one/both the parameters is not an int
     """
     if not isinstance(a, int) and not isinstance(a, float):
         raise TypeError("a must be an integer")
