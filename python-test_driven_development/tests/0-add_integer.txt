@@ -6,7 +6,7 @@ We are testing add_integer with 2 and 3 and should return 5:
 	5
 
 We are testing add_integer with no parameters
-       >>> add_integer(None)
+	>>> add_integer(None)
        	Traceback (most recent call last):
 	...
 	TypeError: a must be an integer
