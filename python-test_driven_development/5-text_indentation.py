@@ -20,4 +20,3 @@ def text_indentation(text):
     for char in [". ", "? ", ": "]:
         text = text.replace(char, char.strip() + "\n\n")
     print(text, end="")
-    print("\n")
