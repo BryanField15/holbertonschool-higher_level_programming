@@ -24,7 +24,7 @@ _________________________
     	      ...
 	     ValueError: size must be >= 0
 
-	Test that size is greater or equal to zero
+	Test that size not a float and is greater or equal to zero
 	     >>> print_square(-1.123)
 	     Traceback (most recent call last):
     	      ...
