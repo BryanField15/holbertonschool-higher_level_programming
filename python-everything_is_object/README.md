@@ -1,0 +1,1 @@
+Solutions for everything is object
