@@ -1,0 +1,15 @@
+The "my_list" module
+=========================
+
+Using "my_list" function
+_________________________
+
+Import "MyList":
+       >>> MyList = __import__("1-my_list").MyList
+
+Create an instance of MyList:
+    >>> new_list = MyList([1, 3, 4, 2])
+
+Test for normal use:
+     >>> new_list.print_sorted()
+     [1, 2, 3, 4]
