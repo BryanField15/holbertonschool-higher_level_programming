@@ -5,14 +5,14 @@ Using "my_list" function
 _________________________
 
 Bring in "MyList":
-       >>> MyList = __import__("1-my_list").MyList
+     >>> MyList = __import__("1-my_list").MyList
 
 Create an instance of MyList:
-    >>> new_list = MyList([1, 3, 4, 2])
+     >>> new_list = MyList([1, 3, 4, 2])
 
 Test is MyList a subclass from list class
-    >>> issubclass(MyList, list)
-    True
+     >>> issubclass(MyList, list)
+     True
 
 Test for normal use:
      >>> new_list.print_sorted()
