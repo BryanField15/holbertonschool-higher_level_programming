@@ -24,6 +24,9 @@ Test for missing argument
      []
 
 Test for negative numbers
-     >>> new_list = MyList([3, -1, 2, -7])
+     >>> new_list.append(-1)
+     >>> new_list.append(3)
+     >>> new_list.append(-7)
+     >>> new_list.append(2)
      >>> new_list.print_sorted()
      [-7, -1, 2, 3]
