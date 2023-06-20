@@ -1,5 +1,5 @@
 #!/usr/bin/python3
+"""Simple lookup function"""
 def lookup(obj):
-    new_list = []
-    new_list = dir(obj)
-    return new_list
+    """Fuction returns attributes of the obj as a list"""
+    return dir(obj)
