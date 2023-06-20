@@ -1,0 +1,36 @@
+The "base_geometry" module
+=========================
+
+Using "base_geometry" function
+_________________________
+
+Bring in "BaseGeometry":
+     >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+Create an instance of :
+     >>> bg = BaseGeometry()
+
+Test is bg an instance of BaseGeometry class
+     >>> isinstance(bg, BaseGeometry)
+     True
+
+Test for normal use:
+     >>> bg = BaseGeometry()
+
+Test for missing value argument
+     >>> bg.integer_validator("name", )
+     Traceback (most recent call last):
+     ...
+     TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Test for negative numbers
+     >>> bg.integer_validator("distance", -4)
+     Traceback (most recent call last):
+     ...
+     ValueError: distance must be greater than 0
+
+Test for integer validator if value is an int
+     >>> bg.integer_validator("name", "John")
+     Traceback (most recent call last):
+     ...
+     TypeError: name must be an integer
