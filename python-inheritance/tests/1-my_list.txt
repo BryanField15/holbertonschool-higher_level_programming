@@ -10,6 +10,10 @@ Bring in "MyList":
 Create an instance of MyList:
     >>> new_list = MyList([1, 3, 4, 2])
 
+Test is MyList a subclass from list class
+    >>> issubclass(MyList, list)
+    True
+
 Test for normal use:
      >>> new_list.print_sorted()
      [1, 2, 3, 4]
