@@ -4,7 +4,7 @@ The "my_list" module
 Using "my_list" function
 _________________________
 
-Import "MyList":
+Bring in "MyList":
        >>> MyList = __import__("1-my_list").MyList
 
 Create an instance of MyList:
@@ -13,3 +13,13 @@ Create an instance of MyList:
 Test for normal use:
      >>> new_list.print_sorted()
      [1, 2, 3, 4]
+
+Test for missing argument
+     >>> new_list = MyList([])
+     >>> new_list.print_sorted()
+     []
+
+Test for negative numbers
+     >>> new_list = MyList([3, -1, 2, -7])
+     >>> new_list.print_sorted()
+     [-7, -1, 2, 3]
