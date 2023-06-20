@@ -18,6 +18,10 @@ Test for normal use:
      >>> new_list.print_sorted()
      [1, 2, 3, 4]
 
+Test orginal list is unchanged
+     >>> print(new_list)
+     [1, 3, 4, 2]
+
 Test for missing argument
      >>> new_list = MyList([])
      >>> new_list.print_sorted()
