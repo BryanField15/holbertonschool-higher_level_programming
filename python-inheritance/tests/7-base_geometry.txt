@@ -77,6 +77,18 @@ Test for integer validator for dictionary
      ...
      TypeError: dict must be an integer
 
+Test for integer validator for list
+     >>> bg.integer_validator("list", [9])
+     Traceback (most recent call last):
+     ...
+     TypeError: list must be an integer
+
+Test for integer validator for Bool
+     >>> bg.integer_validator("bool", True)
+     Traceback (most recent call last):
+     ...
+     TypeError: bool must be an integer
+
 Test for area
      >>> bg.area()
      Traceback (most recent call last):
