@@ -15,7 +15,7 @@ Test is bg an instance of BaseGeometry class
      True
 
 Test for normal use:
-     >>> bg = BaseGeometry()
+     >>> bg.integer_validator("age", 1)
 
 Test for missing value argument
      >>> bg.integer_validator("name", )
@@ -52,6 +52,30 @@ Test for integer validator if no arguments are given
      Traceback (most recent call last):
      ...
      TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Test for integer validator if NaN
+     >>> bg.integer_validator("nan", float("NaN"))
+     Traceback (most recent call last):
+     ...
+     TypeError: nan must be an integer
+
+Test for integer validator for tuple
+     >>> bg.integer_validator("tuple", (1, 2, 3))
+     Traceback (most recent call last):
+     ...
+     TypeError: tuple must be an integer
+
+Test for integer validator for set
+     >>> bg.integer_validator("set", {1, 2, 3})
+     Traceback (most recent call last):
+     ...
+     TypeError: set must be an integer
+
+Test for integer validator for dictionary
+     >>> bg.integer_validator("dict", {"key": "value"})
+     Traceback (most recent call last):
+     ...
+     TypeError: dict must be an integer
 
 Test for area
      >>> bg.area()
