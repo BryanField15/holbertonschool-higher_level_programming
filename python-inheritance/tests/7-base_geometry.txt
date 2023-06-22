@@ -42,10 +42,10 @@ Test for integer validator if value is an int
      TypeError: name must be an integer
 
 Test for integer validator if value is not none
-     >>> bg.integer_validator("None", none)
+     >>> bg.integer_validator("Red", none)
      Traceback (most recent call last):
      ...
-     TypeError: None must be an integer
+     TypeError: Red must be an integer
 
 Test for integer validator if no arguments are given
      >>> bg.integer_validator()
