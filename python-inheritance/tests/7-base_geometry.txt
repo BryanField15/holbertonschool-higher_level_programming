@@ -83,7 +83,7 @@ Test for integer validator for list
      ...
      TypeError: list must be an integer
 
-Test for integer validator for Bool
+Test for integer validator for Boolean
      >>> bg.integer_validator("bool", True)
      Traceback (most recent call last):
      ...
