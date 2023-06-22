@@ -29,6 +29,12 @@ Test for negative numbers
      ...
      ValueError: distance must be greater than 0
 
+Test for zero value
+     >>> bg.integer_validator("width", 0)
+     Traceback (most recent call last):
+     ...
+     ValueError: width must be greater than 0
+
 Test for integer validator if value is an int
      >>> bg.integer_validator("name", "John")
      Traceback (most recent call last):
