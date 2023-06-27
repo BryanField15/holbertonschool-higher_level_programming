@@ -102,7 +102,7 @@ class Rectangle(Base):
                 pass
 
         else:
-             try:
+            try:
                 self.id = kwargs['id']
             except KeyError:
                 pass
