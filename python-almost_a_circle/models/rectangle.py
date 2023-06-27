@@ -76,9 +76,11 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """Prints rectangles using #"""
-        for i in range(self.__height):
-            print("#" * self.__width)
+        """Prints rectangles using # shifted using x and y"""
+        for spaces in range(self.__y):
+            print()
+        for spaces in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
         return (
