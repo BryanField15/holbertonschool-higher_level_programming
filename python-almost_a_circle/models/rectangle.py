@@ -88,8 +88,8 @@ class Rectangle(Base):
             f"{self.__width}/{self.__height}"
         )
 
-    def update(self, *args):
-        """Assigns argument to each attribute"""
+    def update(self, *args, **kwargs):
+        """Updates and assigns argument to each attribute"""
         if args is not None:
             try:
                 self.id = args[0]
@@ -98,4 +98,26 @@ class Rectangle(Base):
                 self.x = args[3]
                 self.y = args[4]
             except IndexError:
+                pass
+
+        else:
+             try:
+                self.id = kwargs['id']
+            except KeyError:
+                pass
+            try:
+                self.__width = kwargs['width']
+            except KeyError:
+                pass
+            try:
+                self.__height = kwargs['height']
+            except KeyError:
+                pass
+            try:
+                self.__x = kwargs['x']
+            except KeyError:
+                pass
+            try:
+                self.__y = kwargs['x']
+            except KeyError:
                 pass
