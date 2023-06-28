@@ -1,4 +1,3 @@
-"""Unit test for class Base"""
 import unittest
 from models.base import Base
 
