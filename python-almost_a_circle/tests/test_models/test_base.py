@@ -2,7 +2,7 @@ import unittest
 from models.base import Base
 
 
-class TestBaseClass(unittest.TestCase):
+class TestBase(unittest.TestCase):
     """Tests for Base class"""
 
     def test_auto_id_assignment(self):
