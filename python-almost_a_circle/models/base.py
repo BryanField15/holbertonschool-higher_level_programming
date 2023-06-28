@@ -32,8 +32,8 @@ class Base:
         json_string = cls.to_json_string(
             [obj.to_dictionary() for obj in list_objs]
         )
-        with open(filename, "w") as file:
-            file.write(json_string)
+        with open(filename, "w") as filename:
+            filename.write(json_string)
 
     @staticmethod
     def from_json_string(json_string):
@@ -42,3 +42,29 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set"""
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        else:
+            dummy = None
+
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as f:
+                json_data = f.read()
+                obj_list = cls.from_json_string(json_data)
+                instances = [cls.create(**data) for data in obj_list]
+                return instances
+        except FileNotFoundError:
+            return []
