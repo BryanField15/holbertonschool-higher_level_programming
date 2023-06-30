@@ -23,3 +23,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.height, 2)
         self.assertEqual(r3.x, 3)
         self.assertEqual(r3.y, 4)
+
+        """Test instantiation and TypeError exceptions"""
+        self.assertRaises(TypeError, Rectangle, "1", 2)
+        self.assertRaises(TypeError, Rectangle, 1, "2")
+        self.assertRaises(TypeError, Rectangle, 1, 2, "3")
+        self.assertRaises(TypeError, Rectangle, 1, 2, 3, "4")
