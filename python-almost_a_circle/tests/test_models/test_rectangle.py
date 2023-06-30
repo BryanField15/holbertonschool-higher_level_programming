@@ -55,6 +55,11 @@ class TestRectangle(unittest.TestCase):
         r5 = Rectangle(2, 3)
         self.assertEqual(r5.area(), 6)
 
+    def test_str(self):
+        """Test that it returns a formatted string"""
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
+
     def test_display_without_xy(self):
         """Test disply to std out"""
         r6 = Rectangle(1, 1, 0, 0)
