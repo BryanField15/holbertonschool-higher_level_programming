@@ -2,7 +2,7 @@ import unittest
 from models.base import Base
 
 class TestBase(unittest.TestCase):
-    """Tests for Base class"""
+    """Tests for the  Base class"""
 
     def test_auto_id_assignment(self):
         """Test that Base assigns a unique ID"""
@@ -29,3 +29,9 @@ class TestBase(unittest.TestCase):
         """Tests the method to_json_string for different input cases"""
         json_string = Base.to_json_string(None)
         self.assertEqual(json_string, "[]")
+
+        json_string = Base.to_json_string([])
+        self.assertEqual(json_string, "[]")
+
+        json_string = Base.to_json_string([{'id': 12}])
+        self.assertIsInstance(json_string, str)
