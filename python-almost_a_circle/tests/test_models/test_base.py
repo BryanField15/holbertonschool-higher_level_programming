@@ -35,3 +35,11 @@ class TestBase(unittest.TestCase):
 
         json_string = Base.to_json_string([{'id': 12}])
         self.assertIsInstance(json_string, str)
+
+    def test_from_json_string(self):
+        """Test for different input cases"""
+        obj_list = Base.from_json_string(None)
+        self.assertEqual(obj_list, [])
+
+        obj_list = Base.from_json_string("[]")
+        self.assertEqual(obj_list, [])
