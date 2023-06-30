@@ -55,7 +55,7 @@ class TestRectangle(unittest.TestCase):
         r5 = Rectangle(2, 3)
         self.assertEqual(r5.area(), 6)
 
-    def test_display(self):
+    def test_display_without_xy(self):
         """Test disply to std out"""
         r6 = Rectangle(1, 1, 0, 0)
         captured_output = io.StringIO()
@@ -63,3 +63,12 @@ class TestRectangle(unittest.TestCase):
         r6.display()
         sys.stdout = sys.__stdout__
         self.assertEqual(captured_output.getvalue(), "#\n")
+
+    def test_display_with_xy(self):
+        """Test disply to std out"""
+        r7 = Rectangle(1, 1, 1, 1)
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        r7.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(), "\n #\n")
