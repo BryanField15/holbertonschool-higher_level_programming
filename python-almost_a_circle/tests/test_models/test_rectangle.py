@@ -11,6 +11,7 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(1, 2)
         r2 = Rectangle(1, 2, 3)
         r3 = Rectangle(1, 2, 3, 4)
+        r4 = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual(r1.width, 1)
         self.assertEqual(r1.height, 2)
         self.assertEqual(r1.x, 0)
@@ -23,9 +24,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.height, 2)
         self.assertEqual(r3.x, 3)
         self.assertEqual(r3.y, 4)
+        self.assertIsInstance(r4, Rectangle)
+        self.assertEqual(r4.width, 1)
+        self.assertEqual(r4.height, 2)
+        self.assertEqual(r4.x, 3)
+        self.assertEqual(r4.y, 4)
+        self.assertEqual(r4.id, 5)
 
         """Test instantiation and TypeError exceptions"""
         self.assertRaises(TypeError, Rectangle, "1", 2)
         self.assertRaises(TypeError, Rectangle, 1, "2")
         self.assertRaises(TypeError, Rectangle, 1, 2, "3")
         self.assertRaises(TypeError, Rectangle, 1, 2, 3, "4")
+        self.assertRaises(TypeError, Rectangle, None)
+        self.assertRaises(TypeError, Rectangle, 1.1, 2.2)
+
+        """Test instantiation and ValueError exceptions"""
+        self.assertRaises(ValueError, Rectangle, -1, 2)
+        self.assertRaises(ValueError, Rectangle, 1, 2, -3)
+        self.assertRaises(ValueError, Rectangle, 1, 2, 3, -4)
