@@ -141,5 +141,23 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(os.path.exists("Rectangle.json"))
         with open("Rectangle.json", "r") as file:
             content = file.read()
-            self.assertEqual(content, '[{"id": 24, "width": 1, "height": 2, "x": 0, "y": 0}, {"id": 25, "width": 3, "height": 4, "x": 0, "y": 0}]')
+            self.assertEqual(content, '[{"id": 28, "width": 1, "height": 2, "x": 0, "y": 0}, {"id": 29, "width": 3, "height": 4, "x": 0, "y": 0}]')
+        os.remove("Rectangle.json")
+
+    def test_load_from_file_not_found(self):
+        """Test load_from_file method when file doesn't exist"""
+        instances = Rectangle.load_from_file()
+        self.assertEqual(instances, [])
+
+    def test_load_from_file_file_exists(self):
+        """Test load_from_file method when file exists"""
+        r1 = Rectangle(1, 2)
+        r2 = Rectangle(3, 4)
+        Rectangle.save_to_file([r1, r2])
+
+        instances = Rectangle.load_from_file()
+        self.assertEqual(len(instances), 2)
+        self.assertIsInstance(instances[0], Rectangle)
+        self.assertIsInstance(instances[1], Rectangle)
+
         os.remove("Rectangle.json")
