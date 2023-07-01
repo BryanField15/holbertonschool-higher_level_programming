@@ -55,3 +55,9 @@ class TestSquare(unittest.TestCase):
         """Test area calculation"""
         s1 = Square(2)
         self.assertEqual(s1.area(), 4)
+
+    def test_to_dict(self):
+        """Test that a dictionary representation is returned"""
+        s1 = Square(1, 2, 3, 4)
+        s1_dict = s1.to_dictionary()
+        self.assertEqual(s1_dict, {'id': 4, 'size': 1, 'x': 2, 'y': 3})
