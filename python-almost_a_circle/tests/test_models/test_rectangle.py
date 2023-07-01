@@ -113,3 +113,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r10.height, 3)
         self.assertEqual(r10.x, 4)
         self.assertEqual(r10.y, 5)
+
+    def test_save_to_file_with_empty_list(self):
+        """Test save_to_file method with an empty list"""
+        Rectangle.save_to_file([])
+
+    def test_save_to_file_with_none_list(self):
+        """Test save_to_file method with a None list"""
+        Rectangle.save_to_file(None)
+
+    def test_save_to_file_with_valid_list(self):
+        """Test save_to_file method with a valid list"""
+        r1 = Rectangle(1, 2)
+        r2 = Rectangle(3, 4)
+        Rectangle.save_to_file([r1, r2])
