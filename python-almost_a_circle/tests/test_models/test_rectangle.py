@@ -70,10 +70,30 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(captured_output.getvalue(), "#\n")
 
     def test_display_with_xy(self):
-        """Test disply to std out"""
+        """Test disply to std out with x and y greater than 0"""
         r7 = Rectangle(1, 1, 1, 1)
         captured_output = io.StringIO()
         sys.stdout = captured_output
         r7.display()
         sys.stdout = sys.__stdout__
         self.assertEqual(captured_output.getvalue(), "\n #\n")
+
+    def test_update_pos_args(self):
+        """Test update function with positional arguments"""
+        r8 = Rectangle(1, 2, 3, 4, 5)
+        r8.update(10, 20, 30, 40, 50)
+        self.assertEqual(r8.id, 10)
+        self.assertEqual(r8.width, 20)
+        self.assertEqual(r8.height, 30)
+        self.assertEqual(r8.x, 40)
+        self.assertEqual(r8.y, 50)
+
+    def test_update_key_args(self):
+        """Test update function with keyword arguments"""
+        r8 = Rectangle(1, 2, 3, 4, 5)
+        r8.update(id=10, width=20, height=30, x=40, y=50)
+        self.assertEqual(r8.id, 10)
+        self.assertEqual(r8.width, 20)
+        self.assertEqual(r8.height, 30)
+        self.assertEqual(r8.x, 40)
+        self.assertEqual(r8.y, 50)
