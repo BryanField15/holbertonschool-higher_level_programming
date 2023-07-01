@@ -61,3 +61,21 @@ class TestSquare(unittest.TestCase):
         s1 = Square(1, 2, 3, 4)
         s1_dict = s1.to_dictionary()
         self.assertEqual(s1_dict, {'id': 4, 'size': 1, 'x': 2, 'y': 3})
+
+    def test_update_pos_args(self):
+        """Test update function with positional arguments"""
+        s1 = Square(1, 2, 3, 4)
+        s1.update(10, 20, 30, 40)
+        self.assertEqual(s1.id, 10)
+        self.assertEqual(s1.size, 20)
+        self.assertEqual(s1.x, 30)
+        self.assertEqual(s1.y, 40)
+
+    def test_update_key_args(self):
+        """Test update function with keyword arguments"""
+        s1 = Square(1, 2, 3, 4)
+        s1.update(id=10, size=20, x=40, y=50)
+        self.assertEqual(s1.id, 10)
+        self.assertEqual(s1.size, 20)
+        self.assertEqual(s1.x, 40)
+        self.assertEqual(s1.y, 50)
