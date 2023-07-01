@@ -103,3 +103,13 @@ class TestRectangle(unittest.TestCase):
         r9 = Rectangle(1, 2, 3, 4, 5)
         r9_dict = r9.to_dictionary()
         self.assertEqual(r9_dict, {'height': 2, 'id': 5, 'width': 1, 'x': 3, 'y': 4})
+
+    def test_create_valid_dict(self):
+        """Test for classmethod create with a valid dictionary for a rectangle"""
+        r10_dict = {"id": 1, "width": 2, "height": 3, "x": 4, "y": 5}
+        r10 = Rectangle.create(**r10_dict)
+        self.assertEqual(r10.id, 1)
+        self.assertEqual(r10.width, 2)
+        self.assertEqual(r10.height, 3)
+        self.assertEqual(r10.x, 4)
+        self.assertEqual(r10.y, 5)
