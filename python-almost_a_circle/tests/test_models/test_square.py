@@ -45,3 +45,13 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(ValueError, Square, 1, -2)
         self.assertRaises(ValueError, Square, 0, 2)
         self.assertRaises(ValueError, Square, 1, 2, -3)
+
+    def test_str(self):
+        """Test that it returns a formatted string"""
+        s1 = Square(5, id=1)
+        self.assertEqual(str(s1), "[Square] (1) 0/0 - 5")
+
+    def test_area(self):
+        """Test area calculation"""
+        s1 = Square(2)
+        self.assertEqual(s1.area(), 4)
