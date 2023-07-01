@@ -13,9 +13,13 @@ class TestSquare(unittest.TestCase):
 
     def test_instances_valid(self):
         """Test instantiation with valid arguments"""
+        s0 = Square(1)
         s1 = Square(1, 2)
         s2 = Square(1, 2, 3)
         s3 = Square(1, 2, 3, 4)
+        self.assertEqual(s0.size, 1)
+        self.assertEqual(s0.x, 0)
+        self.assertEqual(s0.y, 0)
         self.assertEqual(s1.size, 1)
         self.assertEqual(s1.x, 2)
         self.assertEqual(s1.y, 0)
