@@ -79,3 +79,12 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.size, 20)
         self.assertEqual(s1.x, 40)
         self.assertEqual(s1.y, 50)
+
+    def test_create_valid_dict(self):
+        """Test for classmethod create with a valid dictionary for a square"""
+        s1_dict = {"id": 1, "size": 3, "x": 4, "y": 5}
+        s1 = Square.create(**s1_dict)
+        self.assertEqual(s1.id, 1)
+        self.assertEqual(s1.size, 3)
+        self.assertEqual(s1.x, 4)
+        self.assertEqual(s1.y, 5)
