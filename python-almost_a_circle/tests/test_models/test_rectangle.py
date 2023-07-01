@@ -127,9 +127,19 @@ class TestRectangle(unittest.TestCase):
     def test_save_to_file_with_none_list(self):
         """Test save_to_file method with a None list"""
         Rectangle.save_to_file(None)
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, "[]")
+        os.remove("Rectangle.json")
 
     def test_save_to_file_with_valid_list(self):
         """Test save_to_file method with a valid list"""
         r1 = Rectangle(1, 2)
         r2 = Rectangle(3, 4)
         Rectangle.save_to_file([r1, r2])
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, '[{"id": 24, "width": 1, "height": 2, "x": 0, "y": 0}, {"id": 25, "width": 3, "height": 4, "x": 0, "y": 0}]')
+        os.remove("Rectangle.json")
