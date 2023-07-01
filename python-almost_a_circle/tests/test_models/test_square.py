@@ -88,3 +88,32 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.size, 3)
         self.assertEqual(s1.x, 4)
         self.assertEqual(s1.y, 5)
+
+    def test_save_to_file_with_empty_list(self):
+        """Test save_to_file method with an empty list"""
+        Square.save_to_file([])
+        self.assertTrue(os.path.exists("Square.json"))
+        with open("Square.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, "[]")
+        os.remove("Square.json")
+
+    def test_save_to_file_with_none_list(self):
+        """Test save_to_file method with a None list"""
+        Square.save_to_file(None)
+        self.assertTrue(os.path.exists("Square.json"))
+        with open("Square.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, "[]")
+        os.remove("Square.json")
+
+    def test_save_to_file_with_valid_list(self):
+        """Test save_to_file method with a valid list"""
+        s1 = Square(1, 2)
+        s2 = Square(3, 4)
+        Square.save_to_file([s1, s2])
+        self.assertTrue(os.path.exists("Square.json"))
+        with open("Square.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, '[{"id": 15, "size": 1, "x": 2, "y": 0}, {"id": 16, "size": 3, "x": 4, "y": 0}]')
+        os.remove("Square.json")
