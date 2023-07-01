@@ -97,3 +97,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r8.height, 30)
         self.assertEqual(r8.x, 40)
         self.assertEqual(r8.y, 50)
+
+    def test_to_dict(self):
+        """Test that a dictionary representation is returned"""
+        r9 = Rectangle(1, 2, 3, 4, 5)
+        r9_dict = r9.to_dictionary()
+        self.assertEqual(r9_dict, {'height': 2, 'id': 5, 'width': 1, 'x': 3, 'y': 4})
