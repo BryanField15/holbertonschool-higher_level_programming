@@ -9,11 +9,11 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize the attributes of a rectangle"""
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
-        super().__init__(id)
 
     @property
     def width(self):
@@ -92,35 +92,14 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """Updates and assigns argument to each attribute"""
         if args:
-            try:
-                self.id = args[0]
-                self.width = args[1]
-                self.height = args[2]
-                self.x = args[3]
-                self.y = args[4]
-            except IndexError:
-                pass
+            attributes = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                if i < len(attributes):
+                    setattr(self, attributes[i], args[i])
         else:
-            try:
-                self.id = kwargs["id"]
-            except KeyError:
-                pass
-            try:
-                self.__width = kwargs["width"]
-            except KeyError:
-                pass
-            try:
-                self.__height = kwargs["height"]
-            except KeyError:
-                pass
-            try:
-                self.__x = kwargs["x"]
-            except KeyError:
-                pass
-            try:
-                self.__y = kwargs["y"]
-            except KeyError:
-                pass
+            for k, v in kwargs.items():
+                if hasattr(self, k):
+                    setattr(self, k, v)
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle"""
