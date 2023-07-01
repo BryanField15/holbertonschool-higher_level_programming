@@ -1,6 +1,7 @@
 import unittest
 import io
 import sys
+import os
 
 from models.base import Base
 from models.rectangle import Rectangle
@@ -117,6 +118,11 @@ class TestRectangle(unittest.TestCase):
     def test_save_to_file_with_empty_list(self):
         """Test save_to_file method with an empty list"""
         Rectangle.save_to_file([])
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, "[]")
+        os.remove("Rectangle.json")
 
     def test_save_to_file_with_none_list(self):
         """Test save_to_file method with a None list"""
