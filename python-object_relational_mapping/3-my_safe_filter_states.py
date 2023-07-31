@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Takes in an argument and displays all values matching the argument"""
+"""
+Takes in an argument and displays all values matching the argument
+and is injection proof.
+"""
 
 import MySQLdb
 import sys
@@ -16,9 +19,10 @@ if __name__ == "__main__":
 
     query = "SELECT * FROM states WHERE BINARY name \
         LIKE %s ORDER BY id;"
+    name = (sys.argv[4] + '%',)
 
     cur = db.cursor()
-    cur.execute(query, (sys.argv[4],))
+    cur.execute(query, name)
 
     rows = cur.fetchall()
     for row in rows:
