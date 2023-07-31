@@ -19,7 +19,7 @@ if __name__ == "__main__":
         LIKE %s ORDER BY id;"
 
     cur = db.cursor()
-    cur.execute(query, (sys.argv[4] + '%',))
+    cur.execute(query, (sys.argv[4],))
 
     rows = cur.fetchall()
     for row in rows:
