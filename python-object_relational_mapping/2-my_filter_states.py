@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     name = sys.argv[4]
     query = "SELECT * FROM states WHERE BINARY name \
-        LIKE '{}%' ORDER BY id;" .format(name)
+        LIKE '{}' ORDER BY id;" .format(name)
 
     cur = db.cursor()
     cur.execute(query)
