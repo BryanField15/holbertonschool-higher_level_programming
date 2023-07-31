@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Takes in an argument and displays all values matching the argument"""
-"""Safe from SQL injectiomn attack"""
 
 import MySQLdb
 import sys
